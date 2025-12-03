@@ -1,1 +1,30 @@
-<h1>Add Helper</h1>
+{% extends "layout.html" %}
+{% block title %}Add Helper - Helper Finder{% endblock %}
+{% block content %}
+
+<h2 style="text-align:center; margin-bottom:20px;">Add Your Skill</h2>
+
+<form method="POST">
+
+    <select name="skill" required>
+        <option value="">Select Skill</option>
+        <option>Plumber</option>
+        <option>Electrician</option>
+        <option>Mechanic</option>
+        <option>Painter</option>
+        <option>Teacher</option>
+        <option>Chef</option>
+        <option>Software Developer</option>
+        <option>Hairdresser</option>
+        <option>Cleaning</option>
+        <option>Other</option>
+    </select>
+
+    <input type="text" name="location" placeholder="Your Location" required>
+    <input type="text" name="phone" placeholder="Phone Number" required>
+
+    <button type="submit">Add Helper</button>
+
+</form>
+
+{% endblock %}
