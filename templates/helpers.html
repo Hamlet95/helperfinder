@@ -1,1 +1,21 @@
-<h1>Helpers</h1>
+{% extends "layout.html" %}
+{% block title %}Helpers - Helper Finder{% endblock %}
+{% block content %}
+
+<h2 style="margin-bottom:20px; text-align:center;">Available Helpers</h2>
+
+{% if helpers|length == 0 %}
+<p style="text-align:center; color:#777;">No helpers added yet.</p>
+{% endif %}
+
+{% for h in helpers %}
+<div class="helper-card">
+    <h3>{{ h.name }}</h3>
+    <p><strong>Skill:</strong> {{ h.skill }}</p>
+    <p><strong>Location:</strong> {{ h.location }}</p>
+    <p><strong>Phone:</strong> {{ h.phone }}</p>
+    <p><strong>Email:</strong> {{ h.email }}</p>
+</div>
+{% endfor %}
+
+{% endblock %}
