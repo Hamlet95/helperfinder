@@ -1,1 +1,76 @@
-<h1>Home</h1>
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="home-container">
+    <div class="welcome-box">
+        <h1>Welcome to Helper Finder</h1>
+        <p>Your trusted platform to find helpers, skilled workers, and service providers around your area.</p>
+        
+        <div class="home-buttons">
+            <a href="{{ url_for('helpers') }}" class="btn-main">View Helpers</a>
+            {% if not session.get('logged_in') %}
+                <a href="{{ url_for('login') }}" class="btn-secondary">Login</a>
+                <a href="{{ url_for('register') }}" class="btn-secondary">Register</a>
+            {% else %}
+                <a href="{{ url_for('add_helper') }}" class="btn-secondary">Add Your Skill</a>
+                <a href="{{ url_for('logout') }}" class="btn-secondary">Logout</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    backdrop-filter: blur(3px);
+}
+
+.welcome-box {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 40px;
+    text-align: center;
+    border-radius: 12px;
+    width: 70%;
+    max-width: 600px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.welcome-box h1 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.welcome-box p {
+    font-size: 18px;
+    color: #444;
+}
+
+.home-buttons {
+    margin-top: 25px;
+}
+
+.btn-main {
+    background: #0a84ff;
+    color: #fff;
+    padding: 12px 22px;
+    margin: 6px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 17px;
+}
+
+.btn-secondary {
+    background: #333;
+    color: #fff;
+    padding: 10px 18px;
+    margin: 6px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 15px;
+}
+</style>
+
+{% endblock %}
