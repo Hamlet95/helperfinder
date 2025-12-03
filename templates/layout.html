@@ -4,30 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Helper Finder{% endblock %}</title>
-    <link rel="stylesheet" href="/static/style.css">
+
+    <!-- Correct way to load CSS in Flask -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body class="page-fade">
+
     <div class="glow-layer"></div>
+
     {% if session.get('logged_in') %}
     <div class="user-badge">
         👤 {{ session.get('user_name') }}
         <a href="/logout" class="logout-link">Logout</a>
     </div>
     {% endif %}
+
     {% if request.endpoint != 'home' %}
     <a href="javascript:history.back()" class="back-btn-round">←</a>
     {% endif %}
+
     <div class="container page">
         {% block content %}{% endblock %}
     </div>
+
     <footer class="footer">
         <p>© 2025 HelperFinder • Designed & Built by <strong>Hamlet Nyirenda</strong></p>
     </footer>
+
     <script>
         document.addEventListener("mousemove", function(e) {
             document.body.style.setProperty('--mx', e.clientX + "px");
             document.body.style.setProperty('--my', e.clientY + "px");
         });
     </script>
+
 </body>
 </html>
