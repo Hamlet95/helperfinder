@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Hamlet Nyirenda",
+    "skill": "Tutor",
+    "location": "Eros",
+    "phone": "0813861564"
+  },
+  {
+    "name": "Hamlet Nyirenda",
+    "skill": "I.T Technician",
+    "location": "Dorado",
+    "phone": "081223344",
+    "email": "hamletjames111@gmail.com"
+  },
+  {
+    "name": "Austin Powers",
+    "skill": "Plumber",
+    "location": "Katutura",
+    "phone": "081234567",
+    "email": "austinpowers111@gmail.com"
+  }
+]
