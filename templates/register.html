@@ -1,1 +1,24 @@
-<h1>Register</h1>
+{% extends "layout.html" %}
+{% block title %}Register - Helper Finder{% endblock %}
+{% block content %}
+
+<h2 style="text-align:center; margin-bottom:20px;">Create Account</h2>
+
+<form method="POST">
+    {% if error %}
+    <div class="error-message">{{ error }}</div>
+    {% endif %}
+
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+
+    <button type="submit">Register</button>
+
+    <p style="text-align:center; margin-top:10px;">
+        Already have an account?
+        <a href="{{ url_for('login') }}">Login</a>
+    </p>
+</form>
+
+{% endblock %}
